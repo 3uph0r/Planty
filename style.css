@@ -1,0 +1,56 @@
+/*
+Theme Name: Astra Child
+Theme URI: 
+Description: Thème enfant pour le thème Astra
+Author: 3uph0r
+Author URI: 
+Template: astra
+Version: 1.0.0
+Text Domain: astra-child
+*/
+
+/* Centrer la canette */
+.canette {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+}
+
+/* Positionner les brindilles à gauche et à droite */
+.brindille {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.brindille.gauche {
+    left: 20.5%;
+}
+
+.brindille.droite {
+    right: 21%;
+}
+
+/* Conteneur pour le positionnement relatif */
+.container-brindilles {
+    position: relative;
+    text-align: center;
+}
+
+/* Hover:navigation */
+.rencontrer:hover {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.admin:hover {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.ast-custom-button:hover {
+    border-color: #C02E44;
+    color: white;
+}
