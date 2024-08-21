@@ -54,3 +54,8 @@ Text Domain: astra-child
     border-color: #C02E44;
     color: white;
 }
+
+/* Mise en avant du footer d'un cran */
+footer {
+    z-index: 1;
+}
