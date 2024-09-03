@@ -9,6 +9,16 @@ Version: 1.0.0
 Text Domain: astra-child
 */
 
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 400 to 800
+
+.syne-<uniquifier> {
+    font-family: "Syne", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+}
+
 /* Centrer la canette */
 .canette {
     position: relative;
@@ -55,7 +65,26 @@ Text Domain: astra-child
     color: white;
 }
 
-/* Mise en avant du footer d'un cran */
+/* Mise en avant du footer */
 footer {
     z-index: 1;
+}
+
+/* Disparition du bouton du formulaire nombre */
+#wpforms-submit-1646 {
+    display: none;
+}
+
+/* Centrage du bouton du formulaire contact */
+#wpforms-submit-1258 {
+    display: block;
+    margin-left: 17%;
+    width: 30%;
+}
+
+/* Définition de la mise en page du site */
+body {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
 }
