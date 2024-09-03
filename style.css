@@ -9,16 +9,6 @@ Version: 1.0.0
 Text Domain: astra-child
 */
 
-// <uniquifier>: Use a unique and descriptive class name
-// <weight>: Use a value from 400 to 800
-
-.syne-<uniquifier> {
-    font-family: "Syne", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: <weight>;
-    font-style: normal;
-}
-
 /* Centrer la canette */
 .canette {
     position: relative;
@@ -87,5 +77,4 @@ body {
     max-width: 1440px;
     margin-left: auto;
     margin-right: auto;
-
 }
