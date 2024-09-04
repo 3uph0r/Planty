@@ -84,3 +84,15 @@ body {
     text-align: center;
     margin: 0 auto;
 }
+
+/* Partage du formulaire commande en deux */
+#wpforms-2584-field_1-container,
+#wpforms-2584-field_2-container,
+#wpforms-2584-field_3-container,
+#wpforms-2584-field_4-container,
+#wpforms-2584-field_7-container,
+#wpforms-2584-field_6-container {
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+}
