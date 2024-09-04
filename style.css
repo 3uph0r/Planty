@@ -96,3 +96,26 @@ body {
     width: 48%;
     vertical-align: top;
 }
+
+/* Séparation ligne centrale */
+#wpforms-2584-field_1-container,
+#wpforms-2584-field_2-container,
+#wpforms-2584-field_3-container {
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+    padding-right: 10px;
+    border-right: 1px solid #fff;
+    /* Ligne centrale */
+    box-sizing: border-box;
+}
+
+#wpforms-2584-field_4-container,
+#wpforms-2584-field_7-container,
+#wpforms-2584-field_6-container {
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+    padding-left: 200px;
+    box-sizing: border-box;
+}
