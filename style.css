@@ -104,7 +104,7 @@ body {
     display: inline-block;
     width: 48%;
     vertical-align: top;
-    padding-right: 10px;
+    padding-left: 5px;
     border-right: 1px solid #fff;
     /* Ligne centrale */
     box-sizing: border-box;
@@ -116,6 +116,15 @@ body {
     display: inline-block;
     width: 48%;
     vertical-align: top;
-    padding-left: 200px;
+    padding-left: 50px;
     box-sizing: border-box;
+}
+
+/* Centrage du bouton du formulaire commande */
+#wpforms-submit-2584 {
+    display: block;
+    margin-left: 38%;
+    margin-top: 5%;
+    width: 20%;
+    font-size: 15px;
 }
