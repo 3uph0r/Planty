@@ -128,3 +128,33 @@ body {
     width: 20%;
     font-size: 15px;
 }
+
+/* Mise en place des images "LES GOûTS" en background */
+.background-image-1 {
+    background-image: url('http://planty.local/wp-content/uploads/2024/08/jeremy-bezanger-0QgbyZdhX7k-unsplash-1.png');
+}
+
+.background-image-2 {
+    background-image: url('http://planty.local/wp-content/uploads/2024/08/estudio-bloom-tOitjphtIXU-unsplash-1.png');
+}
+
+.background-image-3 {
+    background-image: url('http://planty.local/wp-content/uploads/2024/08/rodion-kutsaev-4k8xEFW4_3Q-unsplash-1.png');
+}
+
+.background-image-4 {
+    background-image: url('http://planty.local/wp-content/uploads/2024/08/estudio-bloom-ezqnxsqUZ80-unsplash-1.png');
+}
+
+.background-image-1,
+.background-image-2,
+.background-image-3,
+.background-image-4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    background-size: cover;
+    background-position: center;
+}
