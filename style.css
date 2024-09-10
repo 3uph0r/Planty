@@ -148,11 +148,11 @@ body div.wpforms-container-full button[type=submit]:hover {
 
     /* Positionne l'élément 'brindille' à 85% du bord gauche sur les petits écrans */
     .brindille-gauche {
-        left: 85%;
+        left: 65%;
     }
 
     /* Positionne l'élément 'brindille' à 85% du bord droit sur les petits écrans */
     .brindille-droite {
-        right: 85%;
+        right: 65%;
     }
 }
