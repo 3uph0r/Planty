@@ -18,19 +18,12 @@ Text Domain: astra-child
     z-index: 1;
 }
 
-/* Positionner les brindilles à gauche et à droite */
-.brindille {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+.brindille-gauche {
+    left: 63.5%;
 }
 
-.brindille.gauche {
-    left: 25%;
-}
-
-.brindille.droite {
-    right: 26%;
+.brindille-droite {
+    right: 65.5%;
 }
 
 /* Conteneur pour le positionnement relatif */
@@ -56,7 +49,7 @@ Text Domain: astra-child
 }
 
 /* Mise en avant du footer */
-footer {
+.ast-footer-copyright {
     z-index: 1;
 }
 
@@ -73,8 +66,12 @@ footer {
 }
 
 /* Définition de la mise en page du site */
-body {
+body,
+html {
+    display: flex;
+    flex-direction: column;
     max-width: 1440px;
+    height: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -129,32 +126,33 @@ body {
     font-size: 15px;
 }
 
-/* Mise en place des images "LES GOûTS" en background */
-.background-image-1 {
-    background-image: url('http://planty.local/wp-content/uploads/2024/08/jeremy-bezanger-0QgbyZdhX7k-unsplash-1.png');
-}
-
-.background-image-2 {
-    background-image: url('http://planty.local/wp-content/uploads/2024/08/estudio-bloom-tOitjphtIXU-unsplash-1.png');
-}
-
-.background-image-3 {
-    background-image: url('http://planty.local/wp-content/uploads/2024/08/rodion-kutsaev-4k8xEFW4_3Q-unsplash-1.png');
-}
-
-.background-image-4 {
-    background-image: url('http://planty.local/wp-content/uploads/2024/08/estudio-bloom-ezqnxsqUZ80-unsplash-1.png');
-}
-
-.background-image-1,
-.background-image-2,
-.background-image-3,
-.background-image-4 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* Position des titres sur les images "LES GOÛTS" */
+.background-image-1 h2,
+.background-image-2 h2,
+.background-image-3 h2,
+.background-image-4 h2 {
+    position: absolute;
+    width: 100%;
     text-align: center;
-    flex-direction: column;
-    background-size: cover;
-    background-position: center;
+    margin: 0;
+    z-index: 10;
+}
+
+/* Changement des boutons des formulaires au passage de la souris */
+body div.wpforms-container-full button[type=submit]:hover {
+    background-color: #C02E44 !important;
+}
+
+/* Media Query pour les très petits écrans */
+@media (max-width: 320px) {
+
+    /* Positionne l'élément 'brindille' à 85% du bord gauche sur les petits écrans */
+    .brindille-gauche {
+        left: 85%;
+    }
+
+    /* Positionne l'élément 'brindille' à 85% du bord droit sur les petits écrans */
+    .brindille-droite {
+        right: 85%;
+    }
 }
