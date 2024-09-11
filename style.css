@@ -82,7 +82,7 @@ html {
     margin: 0 auto;
 }
 
-/* Partage du formulaire commande en deux */
+/* Partage du formulaire en deux colonnes */
 #wpforms-2584-field_1-container,
 #wpforms-2584-field_2-container,
 #wpforms-2584-field_3-container,
@@ -92,36 +92,27 @@ html {
     display: inline-block;
     width: 48%;
     vertical-align: top;
+    box-sizing: border-box;
 }
 
-/* Séparation ligne centrale */
+/* Ajout de la séparation centrale et padding personnalisé */
 #wpforms-2584-field_1-container,
 #wpforms-2584-field_2-container,
 #wpforms-2584-field_3-container {
-    display: inline-block;
-    width: 48%;
-    vertical-align: top;
-    padding-left: 5px;
     border-right: 1px solid #fff;
-    /* Ligne centrale */
-    box-sizing: border-box;
+    padding-left: 5px;
 }
 
 #wpforms-2584-field_4-container,
 #wpforms-2584-field_7-container,
 #wpforms-2584-field_6-container {
-    display: inline-block;
-    width: 48%;
-    vertical-align: top;
     padding-left: 50px;
-    box-sizing: border-box;
 }
 
-/* Centrage du bouton du formulaire commande */
+/* Centrage du bouton de soumission */
 #wpforms-submit-2584 {
     display: block;
-    margin-left: 38%;
-    margin-top: 5%;
+    margin: 5% auto;
     width: 20%;
     font-size: 15px;
 }
@@ -141,6 +132,13 @@ html {
 /* Changement des boutons des formulaires au passage de la souris */
 body div.wpforms-container-full button[type=submit]:hover {
     background-color: #C02E44 !important;
+}
+
+/* Agrandissement des champs texte */
+body div.wpforms-container-full input[type=text],
+body div.wpforms-container-full input[type=email] {
+    width: 85%;
+    height: 50px;
 }
 
 /* Media Query pour les très petits écrans */
