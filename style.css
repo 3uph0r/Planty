@@ -150,6 +150,39 @@ body div.wpforms-container-full input[type=email] {
     width: 30%;
 }
 
+/* Pour les tablettes avec une largeur minimal de 768px */
+@media (max-width: 768px) {
+
+    /* Agrandissement des champs "Nom" et "E-mail" dans contact */
+    #wpforms-1258-field_1,
+    #wpforms-1258-field_2 {
+        width: 100%;
+    }
+}
+
+/* Pour les téléphones avec une largeur minimale de 425px */
+@media (max-width: 425px) {
+
+    /* Centrage des labels du formulaire contact */
+    .wpforms-field-label {
+        text-align: center;
+    }
+}
+
+/* Pour les téléphones avec une largeur minimale de 375px */
+@media (max-width: 375px) {
+
+    /* Positionne l'élément 'brindille' à 85% du bord gauche sur les petits écrans */
+    .brindille-gauche {
+        left: 68%;
+    }
+
+    /* Positionne l'élément 'brindille' à 85% du bord droit sur les petits écrans */
+    .brindille-droite {
+        right: 68%;
+    }
+}
+
 /* Pour les téléphones avec une largeur minimale de 320px */
 @media (max-width: 320px) {
 
