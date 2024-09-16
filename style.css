@@ -168,11 +168,12 @@ body div.wpforms-container-full input[type=email] {
         text-align: center;
     }
 
-    /* Centrage des titres sur les fruits page accueil */
+    /* Diminution de la taille de la police */
     .titre-fruits h2 {
         font-size: 32px !important;
     }
 
+    /* Centrage des titres sur les fruits page accueil */
     #titre-fruits1 h2 {
         margin-top: 30%;
     }
