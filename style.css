@@ -168,14 +168,26 @@ body div.wpforms-container-full input[type=email] {
         text-align: center;
     }
 
-    /* Définition de la mise en page du site */
-    body,
-    html {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        max-width: 425px;
-        margin-left: auto;
-        margin-right: auto;
+    /* Centrage des titres sur les fruits page accueil */
+    .titre-fruits h2 {
+        font-size: 32px !important;
+    }
+
+    #titre-fruits1 h2 {
+        margin-top: 30%;
+    }
+
+    #titre-fruits2 h2 {
+        width: 92%;
+        margin-top: 11%;
+        margin-left: 5%;
+    }
+
+    #titre-fruits3 h2 {
+        margin-top: 18%;
+    }
+
+    #titre-fruits4 h2 {
+        margin-top: 10%;
     }
 }
