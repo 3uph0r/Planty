@@ -111,6 +111,7 @@ body div.wpforms-container-full button[type=submit]:hover {
     box-sizing: border-box;
 }
 
+/* Positionnement des champs à droite */
 #wpforms-2584-field_4-container,
 #wpforms-2584-field_7-container,
 #wpforms-2584-field_6-container {
@@ -141,7 +142,7 @@ body div.wpforms-container-full button[type=submit]:hover {
     width: 20%;
     height: 70px;
     font-size: 19px;
-    margin: 0 0 0 29%;
+    margin: 0 0 0 31%;
     text-align: center;
 }
 
@@ -172,7 +173,33 @@ input[type=number]::-webkit-inner-spin-button {
 /* ------------------------------MEDIA QUERIES------------------------ */
 
 /* Pour les ordinateurs portable avec une largeur minimal de 1024 px */
-@media (max-width: 1024px) {}
+@media (max-width: 1024px) {
+
+    /* Ajustement des champs des quantités dans commande */
+    #wpforms-2584-field_13,
+    #wpforms-2584-field_12,
+    #wpforms-2584-field_11,
+    #wpforms-2584-field_10 {
+        width: 25%;
+        font-size: 17px;
+    }
+
+    #wpforms-2584-field_13 {
+        margin-left: 31%;
+    }
+
+    #wpforms-2584-field_12 {
+        margin-left: 25%;
+    }
+
+    #wpforms-2584-field_11 {
+        margin-left: 18%;
+    }
+
+    #wpforms-2584-field_10 {
+        margin-left: 10%;
+    }
+}
 
 /* Pour les tablettes avec une largeur minimal de 768px */
 @media (max-width: 768px) {
@@ -182,6 +209,85 @@ input[type=number]::-webkit-inner-spin-button {
     #wpforms-1258-field_2 {
         width: 100%;
     }
+
+    /* Taille des champs */
+    #wpforms-2584-field_1,
+    #wpforms-2584-field_2,
+    #wpforms-2584-field_3 {
+        width: 40%;
+        height: 30px;
+    }
+
+    #wpforms-2584-field_4,
+    #wpforms-2584-field_7,
+    #wpforms-2584-field_6 {
+        width: 40%;
+        height: 30px;
+    }
+
+    /* Ajustement des champs des quantités dans commande */
+    #wpforms-2584-field_13,
+    #wpforms-2584-field_12,
+    #wpforms-2584-field_11,
+    #wpforms-2584-field_10 {
+        width: 20%;
+        height: 50px;
+        font-size: 15px;
+    }
+
+    /* Ajustement des quantités avec le reste du formulaire */
+    #wpforms-2584-field_13-container,
+    #wpforms-2584-field_12-container,
+    #wpforms-2584-field_11-container,
+    #wpforms-2584-field_10-container {
+        margin-bottom: 8%;
+    }
+
+    /* Centrage des quantités */
+    #wpforms-2584-field_13 {
+        margin-left: 25%;
+    }
+
+    #wpforms-2584-field_12 {
+        margin-left: 1%;
+    }
+
+    #wpforms-2584-field_11 {
+        margin-left: -23%;
+    }
+
+    #wpforms-2584-field_10 {
+        margin-left: -49%;
+    }
+
+    /* Centrage du bouton commander */
+    #wpforms-submit-2584 {
+        margin-left: 26%;
+    }
+
+    /* Taille des champs à gauche */
+    #wpforms-2584-field_1,
+    #wpforms-2584-field_2,
+    #wpforms-2584-field_3 {
+        width: 80%;
+        height: 50px;
+    }
+
+    /* Taille des champs à droite */
+    #wpforms-2584-field_4,
+    #wpforms-2584-field_7,
+    #wpforms-2584-field_6 {
+        width: 80%;
+        height: 50px;
+    }
+
+    /* Positionnement des champs à droite */
+    #wpforms-2584-field_4-container,
+    #wpforms-2584-field_7-container,
+    #wpforms-2584-field_6-container {
+        padding-left: 5px;
+    }
+
 }
 
 /* ------------------------------------------------------------------- */
