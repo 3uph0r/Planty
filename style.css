@@ -175,6 +175,11 @@ input[type=number]::-webkit-inner-spin-button {
 /* Pour les ordinateurs portable avec une largeur minimal de 1024 px */
 @media (max-width: 1024px) {
 
+    /* Ajustement fleur boule rouge sous formulaire */
+    #boule-rouge {
+        margin: -1% 0 0 0;
+    }
+
     /* Ajustement des champs des quantités dans commande */
     #wpforms-2584-field_13,
     #wpforms-2584-field_12,
@@ -203,6 +208,11 @@ input[type=number]::-webkit-inner-spin-button {
 
 /* Pour les tablettes avec une largeur minimal de 768px */
 @media (max-width: 768px) {
+
+    /* Ajustement fleur boule rouge sous formulaire*/
+    #boule-rouge {
+        margin: -3% 0 0 -26%;
+    }
 
     /* Agrandissement des champs "Nom" et "E-mail" dans contact */
     #wpforms-1258-field_1,
@@ -294,6 +304,12 @@ input[type=number]::-webkit-inner-spin-button {
 /* Pour les téléphones avec une largeur minimale de 425px */
 @media (max-width: 425px) {
 
+    /* Ajustement fleur boule rouge */
+    #boule-rouge {
+        width: 75%;
+        margin: -8% 0 0 -39%;
+    }
+
     /* Centrage des labels du formulaire contact */
     .wpforms-field-label {
         text-align: center;
@@ -313,6 +329,12 @@ input[type=number]::-webkit-inner-spin-button {
     .brindille-droite {
         right: 68%;
     }
+
+    /* Ajustement fleur boule rouge */
+    #boule-rouge {
+        width: 75%;
+        margin: -7% 0 0 -41%;
+    }
 }
 
 /* ------------------------------------------------------------------- */
@@ -327,6 +349,12 @@ input[type=number]::-webkit-inner-spin-button {
     /* Positionne l'élément 'brindille' à 85% du bord droit sur les petits écrans */
     .brindille-droite {
         right: 75%;
+    }
+
+    /* Ajustement fleur boule rouge */
+    #boule-rouge {
+        width: 75%;
+        margin: -1% 0 0 -43%;
     }
 
     /* Centrage des labels du formulaire contact */
