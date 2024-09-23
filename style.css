@@ -371,11 +371,12 @@ input[type=number]::-webkit-inner-spin-button {
         margin-left: 15%;
     }
 
-    /* Centrage du bouton commander */
+    /* Centrage du bouton commander et changement de couleur */
     #wpforms-submit-2584 {
         margin-left: 8%;
         width: 25%;
         margin-top: 125%;
+        background-color: #E0B9B4;
     }
 
     /* Taille des champs à gauche */
