@@ -39,6 +39,11 @@ html {
     background-color: #C02E44;
 }
 
+/* Disparition astérisque champ obligatoire sur tous les formulaires */
+.wpforms-required-label {
+    display: none;
+}
+
 /* ------------------------------------ACCUEIL------------------------ */
 
 /* Centrer la canette */
@@ -209,9 +214,17 @@ input[type=number]::-webkit-inner-spin-button {
 /* Pour les tablettes avec une largeur minimal de 768px */
 @media (max-width: 768px) {
 
-    /* Ajustement fleur boule rouge sous formulaire*/
+    .brindille-droite {
+        right: 67%;
+    }
+
+    .brindille-gauche {
+        left: 66%;
+    }
+
+    /* Ajustement fleur boule rouge sous formulaire contact*/
     #boule-rouge {
-        margin: -3% 0 0 -26%;
+        margin: -3% 0 0 -27%;
     }
 
     /* Agrandissement des champs "Nom" et "E-mail" dans contact */
@@ -304,7 +317,7 @@ input[type=number]::-webkit-inner-spin-button {
 /* Pour les téléphones avec une largeur minimale de 425px */
 @media (max-width: 425px) {
 
-    /* Ajustement fleur boule rouge */
+    /* Ajustement fleur boule rouge ds contact */
     #boule-rouge {
         width: 75%;
         margin: -8% 0 0 -39%;
@@ -313,6 +326,129 @@ input[type=number]::-webkit-inner-spin-button {
     /* Centrage des labels du formulaire contact */
     .wpforms-field-label {
         text-align: center;
+    }
+
+    .fruits img {
+        width: 70%;
+    }
+
+    /* Ajustement des champs des quantités dans commande */
+    #wpforms-2584-field_13,
+    #wpforms-2584-field_12,
+    #wpforms-2584-field_11,
+    #wpforms-2584-field_10 {
+        width: 10%;
+        height: 50px;
+        font-size: 15px;
+    }
+
+    /* Disposition en colonne des quantités */
+    #wpforms-2584-field_13-container,
+    #wpforms-2584-field_12-container,
+    #wpforms-2584-field_11-container,
+    #wpforms-2584-field_10-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Alignement des quantités */
+    #wpforms-2584-field_13 {
+        margin-left: 15%;
+        margin-bottom: 23%;
+    }
+
+    #wpforms-2584-field_12 {
+        margin-left: 15%;
+        margin-bottom: 23%;
+    }
+
+    #wpforms-2584-field_11 {
+        margin-left: 15%;
+        margin-bottom: 23%;
+    }
+
+    #wpforms-2584-field_10 {
+        margin-left: 15%;
+    }
+
+    /* Centrage du bouton commander */
+    #wpforms-submit-2584 {
+        margin-left: 8%;
+        width: 25%;
+        margin-top: 125%;
+    }
+
+    /* Taille des champs à gauche */
+    #wpforms-2584-field_1,
+    #wpforms-2584-field_2,
+    #wpforms-2584-field_3 {
+        width: 100%;
+        height: 30px;
+    }
+
+    /* Taille des champs à droite */
+    #wpforms-2584-field_4,
+    #wpforms-2584-field_7,
+    #wpforms-2584-field_6 {
+        width: 100%;
+        height: 30px;
+    }
+
+    /* Rendre le conteneur parent en position relative */
+    #wpforms-2584 {
+        position: relative;
+        width: 100%;
+        /* S'assurer que le conteneur occupe tout l'espace disponible */
+        height: 500px;
+        /* Ajuster cette hauteur selon le nombre de champs */
+    }
+
+    /* Champ Nom */
+    #wpforms-2584-field_1-container {
+        position: absolute;
+        top: 185%;
+    }
+
+    /* Champ Prénom */
+    #wpforms-2584-field_2-container {
+        position: absolute;
+        top: 200%;
+    }
+
+    /* Champ E-mail */
+    #wpforms-2584-field_3-container {
+        position: absolute;
+        top: 215%;
+    }
+
+    /* Champ Adresse de livraison */
+    #wpforms-2584-field_4-container {
+        position: absolute;
+        top: 245%;
+    }
+
+    /* Champ Code postal */
+    #wpforms-2584-field_7-container {
+        position: absolute;
+        top: 260%;
+    }
+
+    /* Champ Ville */
+    #wpforms-2584-field_6-container {
+        position: absolute;
+        top: 275%;
+    }
+
+
+    /* Alignement des champs "information" et "livraison" en colonne */
+    #wpforms-2584-field_1-container,
+    #wpforms-2584-field_2-container,
+    #wpforms-2584-field_3-container,
+    #wpforms-2584-field_4-container,
+    #wpforms-2584-field_7-container,
+    #wpforms-2584-field_6-container {
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -330,7 +466,28 @@ input[type=number]::-webkit-inner-spin-button {
         right: 68%;
     }
 
-    /* Ajustement fleur boule rouge */
+    /* Centrage des titres sur les fruits page accueil */
+    .titre-fruits h2 {
+        font-size: 35px !important;
+    }
+
+    #titre-fruits1 {
+        padding-top: 10%;
+    }
+
+    #titre-fruits2 {
+        padding-top: 5%;
+    }
+
+    #titre-fruits3 {
+        padding-top: 4%;
+    }
+
+    #titre-fruits4 {
+        padding-top: 3%;
+    }
+
+    /* Ajustement fleur boule rouge ds contact */
     #boule-rouge {
         width: 75%;
         margin: -7% 0 0 -41%;
@@ -351,7 +508,7 @@ input[type=number]::-webkit-inner-spin-button {
         right: 75%;
     }
 
-    /* Ajustement fleur boule rouge */
+    /* Ajustement fleur boule rouge ds contact */
     #boule-rouge {
         width: 75%;
         margin: -1% 0 0 -43%;
@@ -369,20 +526,20 @@ input[type=number]::-webkit-inner-spin-button {
 
     /* Centrage des titres sur les fruits page accueil */
     #titre-fruits1 h2 {
-        margin-top: 30%;
+        margin-top: 14%;
     }
 
     #titre-fruits2 h2 {
-        width: 92%;
-        margin-top: 11%;
-        margin-left: 5%;
+        width: 100%;
+        margin-top: 5%;
     }
 
     #titre-fruits3 h2 {
-        margin-top: 18%;
+        width: 106%;
+        margin-top: 15%;
     }
 
     #titre-fruits4 h2 {
-        margin-top: 10%;
+        margin-top: 7%;
     }
 }
