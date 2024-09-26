@@ -1,0 +1,9 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = true
+	ignorecase = true
+[remote "origin"]
+	url = git@github.com:3uph0r/Planty.git
+	fetch = +refs/*:refs/*
+	mirror = true
