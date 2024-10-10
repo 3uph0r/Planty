@@ -896,6 +896,22 @@ if ( ! function_exists( 'astra_get_custom_button' ) ) {
 		$new_tab       = ( $header_button['new_tab'] ? 'target="_blank"' : 'target="_self"' );
 		$link_rel      = ( ! empty( $header_button['link_rel'] ) ? 'rel="' . esc_attr( $header_button['link_rel'] ) . '"' : '' );
 
+		// Check for the multisite with subdirectory and if the subdirectory path is enabled for button links.
+		if ( defined( 'SUBDOMAIN_INSTALL' ) && ! SUBDOMAIN_INSTALL ) {
+			$enable_subdirectory_path = apply_filters( 'astra_enable_subdirectory_path', false );
+			if (
+				$enable_subdirectory_path
+				&& isset( $header_button['url'] ) // Check for URL availability.
+				&& ! str_starts_with( $header_button['url'], 'http' ) // Check for external site link.
+			) {
+				$current_site = get_blog_details();
+				if ( $current_site instanceof WP_Site && $current_site->path ) {
+					$btn_url              = $current_site->path . $header_button['url'];
+					$header_button['url'] = str_replace( '//', '/', $btn_url );
+				}
+			}
+		}
+
 		$button_classes    = ( 'theme-button' === $button_style ? 'ast-button' : 'ast-custom-button' );
 		$outside_menu_item = apply_filters( 'astra_convert_link_to_button', $outside_menu );
 
@@ -1619,14 +1635,17 @@ if ( ! function_exists( 'astra_comment_form_default_fields_markup' ) ) {
 		}
 
 		$fields['author'] = '<div class="ast-comment-formwrap ast-row"><p class="comment-form-author ' . astra_attr( 'comment-form-grid-class' ) . '">' .
-					'<label for="author" class="screen-reader-text">' . esc_html( $name_label ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
-					'" placeholder="' . esc_attr( $name_label ) . '" size="30"' . $aria_req . ' /></p>';
-		$fields['email']  = '<p class="comment-form-email ' . astra_attr( 'comment-form-grid-class' ) . '">' .
-					'<label for="email" class="screen-reader-text">' . esc_html( $email_label ) . '</label><input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) .
-					'" placeholder="' . esc_attr( $email_label ) . '" size="30"' . $aria_req . ' /></p>';
-		$fields['url']    = '<p class="comment-form-url ' . astra_attr( 'comment-form-grid-class' ) . '"><label for="url">' .
-					'<label for="url" class="screen-reader-text">' . esc_html( $website_label ) . '</label><input id="url" name="url" type="text" value="' . esc_url( $commenter['comment_author_url'] ) .
-					'" placeholder="' . esc_attr( $website_label ) . '" size="30" /></label></p></div>';
+		'<label for="author" class="screen-reader-text">' . esc_html( $name_label ) . '</label><input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+		'" placeholder="' . esc_attr( $name_label ) . '" size="30"' . $aria_req . ' autocomplete="name" /></p>';
+	
+		$fields['email'] = '<p class="comment-form-email ' . astra_attr( 'comment-form-grid-class' ) . '">' .
+		'<label for="email" class="screen-reader-text">' . esc_html( $email_label ) . '</label><input id="email" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) .
+		'" placeholder="' . esc_attr( $email_label ) . '" size="30"' . $aria_req . ' autocomplete="email" /></p>';
+	
+		$fields['url'] = '<p class="comment-form-url ' . astra_attr( 'comment-form-grid-class' ) . '"><label for="url">' .
+		'<label for="url" class="screen-reader-text">' . esc_html( $website_label ) . '</label><input id="url" name="url" type="text" value="' . esc_url( $commenter['comment_author_url'] ) .
+		'" placeholder="' . esc_attr( $website_label ) . '" size="30" autocomplete="url" /></label></p></div>';
+	
 
 		return apply_filters( 'astra_comment_form_default_fields_markup', $fields );
 	}

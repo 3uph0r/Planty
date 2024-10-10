@@ -473,6 +473,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Blog Post Title Typography Options.
 			$single_post_max                        = astra_get_option( 'blog-single-width' );
 			$single_post_max_width                  = astra_get_option( 'blog-single-max-width' );
+			$single_page_max                        = astra_get_option( 'page-single-width' );
+			$single_page_max_width                  = astra_get_option( 'page-single-max-width' );
 			$blog_width                             = astra_get_option( 'blog-width' );
 			$blog_max_width                         = astra_get_option( 'blog-max-width' );
 			$mobile_header_toggle_btn_style_color   = astra_get_option( 'mobile-header-toggle-btn-style-color', $btn_bg_color );
@@ -1504,6 +1506,28 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 
 				$parse_css .= astra_parse_css( $single_post_outside_spacing_css_mobile, '', astra_get_mobile_breakpoint() );
+			} 
+			
+			
+			if ( self::astra_4_8_2_compatibility() ) {
+
+				$single_post_outside_padding_css_tablet = array(
+					'.ast-separate-container.ast-single-post #primary, .ast-narrow-container.ast-single-post #primary' => array(
+						'padding-left'  => astra_responsive_spacing( $single_post_outside_spacing, 'left', 'tablet' ),
+						'padding-right' => astra_responsive_spacing( $single_post_outside_spacing, 'right', 'tablet' ),
+					),
+				);
+
+				$parse_css .= astra_parse_css( $single_post_outside_padding_css_tablet, '', astra_get_tablet_breakpoint() );
+
+				$single_post_outside_padding_css_mobile = array(
+					'.ast-separate-container.ast-single-post #primary, .ast-narrow-container.ast-single-post #primary' => array(
+						'padding-left'  => astra_responsive_spacing( $single_post_outside_spacing, 'left', 'mobile' ),
+						'padding-right' => astra_responsive_spacing( $single_post_outside_spacing, 'right', 'mobile' ),
+					),
+				);
+
+				$parse_css .= astra_parse_css( $single_post_outside_padding_css_mobile, '', astra_get_mobile_breakpoint() );
 			}
 
 			/**
@@ -3905,6 +3929,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css      .= astra_parse_css( $single_blog_css, astra_get_tablet_breakpoint( '', 1 ) );
 			endif;
 
+			/* Single Page */
+			if ( 'custom' === $single_page_max ) :
+
+				/* Site width Responsive */
+				$single_page_css = array(
+					' .page .site-content > .ast-container' => array(
+						'max-width' => astra_get_css_value( $single_page_max_width, 'px' ),
+					),                      
+				);
+				$parse_css      .= astra_parse_css( $single_page_css, astra_get_tablet_breakpoint( '', 1 ) );
+			endif;
+
 			if ( self::astra_headings_clear_compatibility() && is_singular() ) {
 				/**
 				 * Fix with backward compatibility for single blogs heading text wrap with image issue.
@@ -6270,6 +6306,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * so in that case, we will not convert the "clear:both" to "clear:none" for old users.
 			 */
 			return apply_filters( 'astra_get_option_single_posts_pages_heading_clear_none', isset( $astra_settings['single_posts_pages_heading_clear_none'] ) ? false : true );
+		}
+
+		/**
+		 * Single post outside padding was not working.
+		 *
+		 * @return bool true|false.
+		 * @since 4.8.2
+		 */
+		public static function astra_4_8_2_compatibility() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			return apply_filters( 'astra_get_option_v4-8-2-backward-option', isset( $astra_settings['v4-8-2-backward-option'] ) ? false : true );
 		}
 
 		/**

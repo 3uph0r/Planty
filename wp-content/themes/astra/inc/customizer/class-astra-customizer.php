@@ -131,11 +131,40 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		}
 
 		/**
+		 * Check if the current customizer request belongs to Astra theme.
+		 * 
+		 * @return bool True if it is Astra customizer, false otherwise.
+		 *
+		 * @since 4.8.3
+		 */
+		public static function is_astra_customizer() {
+
+			// Bail early if it is the Kadence WooCommerce Email Designer plugin customizer.
+			if ( class_exists( 'Kadence_Woomail_Designer' ) ) {
+				if ( Kadence_Woomail_Designer::is_own_customizer_request() || Kadence_Woomail_Designer::is_own_preview_request() ) {
+					return false;
+				}
+			}
+
+			return true;
+		}
+		/**
 		 * Constructor
 		 */
 		public function __construct() {
 
 			add_action( 'astra_style_guide_site_icon', array( $this, 'site_icon_update' ) );
+
+			// Hooks that are necessary even if it is not Astra's customizer.
+			if ( is_admin() || is_customize_preview() ) {
+				add_action( 'customize_register', array( $this, 'include_configurations' ), 2 );
+			}
+			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
+			
+			// Bail early if it is not astra customizer.
+			if ( ! self::is_astra_customizer() ) {
+				return;
+			}
 
 			/**
 			 * Customizer
@@ -143,7 +172,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			add_action( 'customize_preview_init', array( $this, 'preview_init' ) );
 
 			if ( is_admin() || is_customize_preview() ) {
-				add_action( 'customize_register', array( $this, 'include_configurations' ), 2 );
 				add_action( 'customize_register', array( $this, 'prepare_customizer_javascript_configs' ) );
 				add_action( 'customize_register', array( $this, 'astra_pro_upgrade_configurations' ), 2 );
 				add_action( 'customize_register', array( $this, 'prepare_group_configs' ), 9 );
@@ -163,7 +191,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			add_action( 'customize_controls_print_footer_scripts', array( $this, 'print_footer_scripts' ) );
 
-			add_action( 'customize_register', array( $this, 'customize_register_panel' ), 2 );
 			add_action( 'customize_register', array( $this, 'customize_register' ) );
 			add_action( 'customize_register', array( $this, 'customize_register_site_icon' ), 20 );
 			add_action( 'customize_save_after', array( $this, 'customize_save' ) );
@@ -1382,7 +1409,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @return void
 		 */
 		public function controls_scripts() {
-
 			$js_prefix  = '.min.js';
 			$css_prefix = '.min.css';
 			$dir        = 'minified';
@@ -1553,7 +1579,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							'code'  => 'var(--ast-global-color-5)',
 						),
 						'color-6' => array(
-							'title' => __( 'Alt BG', 'astra' ),
+							'title' => __( 'Border', 'astra' ),
 							'code'  => 'var(--ast-global-color-6)',
 						),
 						'color-7' => array(
@@ -1823,6 +1849,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'apply_content_bg_fullwidth_layouts'   => astra_get_option( 'apply-content-background-fullwidth-layouts', true ),
 				'astra_woo_btn_global_compatibility'   => is_callable( 'Astra_Dynamic_CSS::astra_woo_support_global_settings' ) ? Astra_Dynamic_CSS::astra_woo_support_global_settings() : false,
 				'v4_2_2_core_form_btns_styling'        => ( true === Astra_Dynamic_CSS::astra_core_form_btns_styling() ) ? ', #comments .submit, .search .search-submit' : '',
+				'isLifterLMS'                          => class_exists( 'LifterLMS' ),
 				'improved_button_selector'             => Astra_Dynamic_CSS::astra_4_6_4_compatibility() ? ', .ast-single-post .entry-content .wp-block-button .wp-block-button__link, .ast-single-post .entry-content .wp-block-search .wp-block-search__button, body .entry-content .wp-block-file .wp-block-file__button' : '',
 				'tablet_breakpoint'                    => astra_get_tablet_breakpoint(),
 				'mobile_breakpoint'                    => astra_get_mobile_breakpoint(),
@@ -1930,9 +1957,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$is_script_debug = SCRIPT_DEBUG ? true : false;
 				/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				$js_prefix  = '.min.js';
+				$js_prefix = '.min.js';
 				if ( $is_script_debug ) {
-					$js_prefix  = '.js';
+					$js_prefix = '.js';
 				}
 
 				$rtl = ( is_rtl() ) ? '-rtl' : '';
